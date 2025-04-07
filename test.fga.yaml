@@ -90,6 +90,36 @@ tests:
           can_delete: true
           can_list: true
           can_update: true
+  - name: Tenant admin should not have permissions for file storage belonging to another tenant.
+    check:
+      - user: user:t1_admin
+        object: file-storage:t1d1p1fs1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list: true
+          can_update: true
+      - user: user:t1_admin
+        object: file-storage:t1d1p2fs1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list: true
+          can_update: true
+      - user: user:t1_admin
+        object: file-storage:t1d2p1fs1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list: true
+          can_update: true
+      - user: user:t1_admin
+        object: file-storage:t1d2p2fs1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list: true
+          can_update: true
       - user: user:t1_admin
         object: file-storage:t2d1p1fs1
         assertions:
