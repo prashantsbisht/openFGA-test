@@ -1,0 +1,59 @@
+#version: '3.8'
+
+networks:
+  openfga:
+
+services:
+  fgadb:
+    image: postgres:14
+    networks:
+      - openfga
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  migrate:
+    depends_on:
+      fgadb:
+        condition: service_healthy
+    image: openfga/openfga:latest
+    command: migrate
+    environment:
+      - OPENFGA_DATASTORE_ENGINE=postgres
+      - OPENFGA_DATASTORE_URI=postgres://postgres:password@fgadb:5432/postgres?sslmode=disable
+    networks:
+      - openfga
+
+  openfga:
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    image: openfga/openfga:latest
+    container_name: openfga
+    environment:
+      - OPENFGA_DATASTORE_ENGINE=postgres
+      - OPENFGA_DATASTORE_URI=postgres://postgres:password@fgadb:5432/postgres?sslmode=disable
+      - OPENFGA_LOG_FORMAT=json
+      - AUTHN_METHOD=preshared
+      - AUTHN_PRESHARED_KEYS="MYPreSharedToken1"
+    command: run
+    networks:
+      - openfga
+    ports:
+      # Needed for the http server
+      - "8180:8080"
+      # Needed for the grpc server (if used)
+      - "8181:8081"
+      # Needed for the playground (Do not enable in prod!)
+      - "3000:3000"
+volumes:
+  postgres_data:

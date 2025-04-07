@@ -1,0 +1,50 @@
+model
+  schema 1.1
+
+type file-storage
+  relations
+    define admin: [user, project#file-storage-admin] or admin from parent
+    define can_create: [user, project#member] or member
+    define can_delete: [user] or member
+    define can_list: [user] or member
+    define can_update: [user] or member
+    define member: [user, project#file-storage-user] or member from parent or admin
+    define parent: [project]
+
+type compute
+  relations
+    define admin: [user, project#compute-admin] or admin from parent
+    define can_create: [user] or member
+    define can_delete: [user] or member
+    define can_list: [user] or member
+    define can_update: [user] or member
+    define member: [user, project#compute-user] or admin or member from parent
+    define parent: [project]
+
+type root-tenant
+  relations
+    define admin: [user]
+
+type tenant
+  relations
+    define admin: [user] or admin from parent
+    define member: [user] or admin
+    define parent: [root-tenant]
+
+type domain
+  relations
+    define admin: [user, root-tenant#admin] or admin from parent
+    define member: [user] or admin
+    define parent: [tenant]
+
+type project
+  relations
+    define admin: [user, root-tenant#admin] or admin from parent
+    define compute-admin: [user] or admin
+    define compute-user: [user] or compute-admin or member
+    define file-storage-admin: [user] or admin
+    define file-storage-user: [user] or file-storage-admin or member
+    define member: [user] or admin
+    define parent: [domain]
+
+type user

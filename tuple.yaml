@@ -1,0 +1,217 @@
+- user: user:root_admin
+  object: root-tenant:root
+  relation: admin
+
+#-------- Tenant t1------------------
+- user: root-tenant:root
+  object: tenant:t1
+  relation: parent
+- user: user:t1_admin
+  object: tenant:t1
+  relation: admin
+- user: user:t1_member
+  object: tenant:t1
+  relation: member
+
+- user: tenant:t1
+  object: domain:t1d1
+  relation: parent
+- user: user:t1d1_admin
+  object: domain:t1d1
+  relation: admin
+- user: user:t1d1_member
+  object: domain:t1d1
+  relation: member
+
+- user: domain:t1d1
+  object: project:t1d1p1
+  relation: parent
+- user: user:t1d1p1_admin
+  object: project:t1d1p1
+  relation: admin
+- user: user:t1d1p1_member
+  object: project:t1d1p1
+  relation: member
+
+#-------resources for project t1d1p1------
+- user: project:t1d1p1
+  object: file-storage:t1d1p1fs1
+  relation: parent
+- user: project:t1d1p1
+  object: compute:t1d1p1compute1
+  relation: parent
+#------------------------------------------
+- user: domain:t1d1
+  object: project:t1d1p2
+  relation: parent
+- user: user:t1d1p2_admin
+  object: project:t1d1p2
+  relation: admin
+- user: user:t1d1p2_member
+  object: project:t1d1p2
+  relation: member
+
+#-------resources for project t1d1p2------
+- user: project:t1d1p2
+  object: file-storage:t1d1p2fs1
+  relation: parent
+- user: project:t1d1p2
+  object: compute:t1d1p2compute1
+  relation: parent
+#------------------------------------------
+
+- user: tenant:t1
+  object: domain:t1d2
+  relation: parent
+- user: user:t1d2_admin
+  object: domain:t1d2
+  relation: admin
+- user: user:t1d2_member
+  object: domain:t1d2
+  relation: member
+
+- user: domain:t1d2
+  object: project:t1d2p1
+  relation: parent
+- user: user:t1d2p1_admin
+  object: project:t1d2p1
+  relation: admin
+- user: user:t1d2p1_member
+  object: project:t1d2p1
+  relation: member
+
+#-------resources for project t1d2p1------
+- user: project:t1d2p1
+  object: file-storage:t1d2p1fs1
+  relation: parent
+- user: project:t1d2p1
+  object: compute:t1d2p1compute1
+  relation: parent
+#------------------------------------------
+
+- user: domain:t1d2
+  object: project:t1d2p2
+  relation: parent
+- user: user:t1d2p2_admin
+  object: project:t1d2p2
+  relation: admin
+- user: user:t1d2p2_member
+  object: project:t1d2p2
+  relation: member
+
+#-------resources for project t1d2p2------
+- user: project:t1d2p2
+  object: file-storage:t1d2p2fs1
+  relation: parent
+- user: project:t1d2p2
+  object: compute:t1d2p2compute1
+  relation: parent
+#------------------------------------------
+
+#-------- Tenant t2------------------
+- user: root-tenant:root
+  object: tenant:t2
+  relation: parent
+- user: user:t2_admin
+  object: tenant:t2
+  relation: admin
+- user: user:t2_member
+  object: tenant:t2
+  relation: member
+
+- user: tenant:t2
+  object: domain:t2d1
+  relation: parent
+- user: user:t2d1_admin
+  object: domain:t2d1
+  relation: admin
+- user: user:t2d1_member
+  object: domain:t2d1
+  relation: member
+
+- user: domain:t2d1
+  object: project:t2d1p1
+  relation: parent
+- user: user:t2d1p1_admin
+  object: project:t2d1p1
+  relation: admin
+- user: user:t2d1p1_member
+  object: project:t2d1p1
+  relation: member
+
+#-------resources for project t2d1p1------
+- user: project:t2d1p1
+  object: file-storage:t2d1p1fs1
+  relation: parent
+- user: project:t2d1p1
+  object: compute:t2d1p1compute1
+  relation: parent
+#------------------------------------------
+
+- user: domain:t2d1
+  object: project:t2d1p2
+  relation: parent
+- user: user:t2d1p2_admin
+  object: project:t2d1p2
+  relation: admin
+- user: user:t2d1p2_member
+  object: project:t2d1p2
+  relation: member
+
+#-------resources for project t2d1p2------
+- user: project:t2d1p2
+  object: file-storage:t2d1p2fs1
+  relation: parent
+- user: project:t2d1p2
+  object: compute:t2d1p2compute1
+  relation: parent
+#------------------------------------------
+
+- user: tenant:t2
+  object: domain:t2d2
+  relation: parent
+- user: user:t2d2_admin
+  object: domain:t2d2
+  relation: admin
+- user: user:t2d2_member
+  object: domain:t2d2
+  relation: member
+
+- user: domain:t2d2
+  object: project:t2d2p1
+  relation: parent
+- user: user:t2d2p1_admin
+  object: project:t2d2p1
+  relation: admin
+- user: user:t2d2p1_member
+  object: project:t2d2p1
+  relation: member
+
+#-------resources for project t2d2p1------
+- user: project:t2d2p1
+  object: file-storage:t2d2p1fs1
+  relation: parent
+- user: project:t2d2p1
+  object: compute:t2d2p1compute1
+  relation: parent
+#------------------------------------------
+
+- user: domain:t2d2
+  object: project:t2d2p2
+  relation: parent
+- user: user:t2d2p2_admin
+  object: project:t2d2p2
+  relation: admin
+- user: user:t2d2p2_member
+  object: project:t2d2p2
+  relation: member
+
+#-------resources for project t2d2p2------
+- user: project:t2d2p2
+  object: file-storage:t2d2p2fs1
+  relation: parent
+- user: project:t2d2p2
+  object: compute:t2d2p2compute1
+  relation: parent
+#------------------------------------------
+
