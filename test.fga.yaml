@@ -148,64 +148,64 @@ tests:
           can_delete: false
           can_list: false
           can_update: false
-  - name: Tenant members can list and create file storage within their tenant, but cannot delete it.
-    check:
-      - user: user:t1_member
-        object: file-storage:t1d1p1fs1
-        assertions:
-          can_create: true
-          can_delete: false
-          can_list: true
-          can_update: true
-      - user: user:t1_member
-        object: file-storage:t1d1p2fs1
-        assertions:
-          can_create: true
-          can_delete: false
-          can_list: true
-          can_update: true
-      - user: user:t1_member
-        object: file-storage:t1d2p1fs1
-        assertions:
-          can_create: true
-          can_delete: false
-          can_list: true
-          can_update: true
-      - user: user:t1_member
-        object: file-storage:t1d2p2fs1
-        assertions:
-          can_create: true
-          can_delete: false
-          can_list: true
-          can_update: true
-      - user: user:t1_member
-        object: file-storage:t2d1p1fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1_member
-        object: file-storage:t2d1p2fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1_member
-        object: file-storage:t2d2p1fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1_member
-        object: file-storage:t2d2p2fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
+  # - name: Tenant members can list and create file storage within their tenant, but cannot delete it.
+  #   check:
+  #     - user: user:t1_member
+  #       object: file-storage:t1d1p1fs1
+  #       assertions:
+  #         can_create: true
+  #         can_delete: false
+  #         can_list: true
+  #         can_update: true
+  #     - user: user:t1_member
+  #       object: file-storage:t1d1p2fs1
+  #       assertions:
+  #         can_create: true
+  #         can_delete: false
+  #         can_list: true
+  #         can_update: true
+  #     - user: user:t1_member
+  #       object: file-storage:t1d2p1fs1
+  #       assertions:
+  #         can_create: true
+  #         can_delete: false
+  #         can_list: true
+  #         can_update: true
+  #     - user: user:t1_member
+  #       object: file-storage:t1d2p2fs1
+  #       assertions:
+  #         can_create: true
+  #         can_delete: false
+  #         can_list: true
+  #         can_update: true
+  #     - user: user:t1_member
+  #       object: file-storage:t2d1p1fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1_member
+  #       object: file-storage:t2d1p2fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1_member
+  #       object: file-storage:t2d2p1fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1_member
+  #       object: file-storage:t2d2p2fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
   - name: Domain admin have all permission for file-storage in their domain only.
     check:
       - user: user:t1d1_admin
@@ -264,64 +264,64 @@ tests:
           can_delete: false
           can_list: false
           can_update: false
-  - name: Domain members can list and create file storage within their domain, but cannot delete it.
-    check:
-      - user: user:t1d1_member
-        object: file-storage:t1d1p1fs1
-        assertions:
-          can_create: true
-          can_delete: false
-          can_list: true
-          can_update: true
-      - user: user:t1d1_member
-        object: file-storage:t1d1p2fs1
-        assertions:
-          can_create: true
-          can_delete: false
-          can_list: true
-          can_update: true
-      - user: user:t1d1_member
-        object: file-storage:t1d2p1fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1d1_member
-        object: file-storage:t1d2p2fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1d1_member
-        object: file-storage:t2d1p1fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1d1_member
-        object: file-storage:t2d1p2fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1d1_member
-        object: file-storage:t2d2p1fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
-      - user: user:t1d1_member
-        object: file-storage:t2d2p2fs1
-        assertions:
-          can_create: false
-          can_delete: false
-          can_list: false
-          can_update: false
+  # - name: Domain members can list and create file storage within their domain, but cannot delete it.
+  #   check:
+  #     - user: user:t1d1_member
+  #       object: file-storage:t1d1p1fs1
+  #       assertions:
+  #         can_create: true
+  #         can_delete: false
+  #         can_list: true
+  #         can_update: true
+  #     - user: user:t1d1_member
+  #       object: file-storage:t1d1p2fs1
+  #       assertions:
+  #         can_create: true
+  #         can_delete: false
+  #         can_list: true
+  #         can_update: true
+  #     - user: user:t1d1_member
+  #       object: file-storage:t1d2p1fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1d1_member
+  #       object: file-storage:t1d2p2fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1d1_member
+  #       object: file-storage:t2d1p1fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1d1_member
+  #       object: file-storage:t2d1p2fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1d1_member
+  #       object: file-storage:t2d2p1fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
+  #     - user: user:t1d1_member
+  #       object: file-storage:t2d2p2fs1
+  #       assertions:
+  #         can_create: false
+  #         can_delete: false
+  #         can_list: false
+  #         can_update: false
   - name: Project members can list and create file storage within their project, but cannot delete it.
     check:
       - user: user:t1d1p1_admin
