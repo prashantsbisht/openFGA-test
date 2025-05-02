@@ -19,4 +19,4 @@ jobs:
       - name: Run Test
         uses: openfga/action-openfga-test@v0.1.0
         with:
-          store-file-path: ./test.fga.yaml
+          store-file-path: ./tests/test.fga.yaml
