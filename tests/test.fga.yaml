@@ -1,5 +1,5 @@
 name: Validation of OpenFGA policy
-model_file: ./model.fga
+model_file: ../model.fga
 tuple_file: ./tuple.yaml
 tests:
   - name: Root-Tenant admin have all permission for file-storage irrespective of tenants
