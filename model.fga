@@ -3,23 +3,25 @@ model
 
 type file-storage
   relations
-    define admin: [user, project#file-storage-admin] or admin from parent
-    define can_create: [user, project#member] or member
-    define can_delete: [user] or member
-    define can_list: [user] or member
-    define can_update: [user] or member
-    define member: [user, project#file-storage-user] or member from parent or admin
-    define parent: [project]
-
-type compute
-  relations
-    define admin: [user, project#compute-admin] or admin from parent
+    define admin: [user, project#file-storage-admin] or admin from parent or file-storage-admin from parent
     define can_create: [user] or member
     define can_delete: [user] or member
-    define can_list: [user] or member
+    define can_list: [user] or viewer
     define can_update: [user] or member
-    define member: [user, project#compute-user] or admin or member from parent
+    define member: [user, project#file-storage-user] or admin or file-storage-user from parent
     define parent: [project]
+    define viewer: [user, project#member] or member or admin or file-storage-viewer from parent
+
+type computes
+  relations
+    define admin: [user, project#computes-admin] or admin from parent or computes-admin from parent
+    define can_create: [user] or viewer
+    define can_delete: [user] or viewer
+    define can_list: [user] or viewer
+    define can_update: [user] or viewer
+    define member: [user, project#computes-user] or admin or computes-user from parent
+    define parent: [project]
+    define viewer: [user] or member or admin or computes-viewer from parent
 
 type root-tenant
   relations
@@ -28,23 +30,38 @@ type root-tenant
 type tenant
   relations
     define admin: [user] or admin from parent
+    define computes-admin: [user] or admin
+    define computes-user: [user] or computes-admin
+    define computes-viewer: [user] or computes-admin or computes-user
+    define file-storage-admin: [user] or admin
+    define file-storage-user: [user] or file-storage-admin
+    define file-storage-viewer: [user] or file-storage-admin or file-storage-user
     define member: [user] or admin
     define parent: [root-tenant]
 
 type domain
   relations
     define admin: [user, root-tenant#admin] or admin from parent
+    define computes-admin: [user] or admin or computes-admin from parent
+    define computes-user: [user] or computes-admin or computes-user from parent
+    define computes-viewer: [user] or computes-admin or computes-user or computes-viewer from parent
+    define file-storage-admin: [user] or admin or file-storage-admin from parent
+    define file-storage-user: [user] or file-storage-admin or file-storage-user from parent
+    define file-storage-viewer: [user] or file-storage-admin or file-storage-user or file-storage-viewer from parent
     define member: [user] or admin
     define parent: [tenant]
 
 type project
   relations
-    define admin: [user, root-tenant#admin] or admin from parent
-    define compute-admin: [user] or admin
-    define compute-user: [user] or compute-admin or member
-    define file-storage-admin: [user] or admin
-    define file-storage-user: [user] or file-storage-admin or member
+    define admin: [user, root-tenant#admin, tenant#admin] or admin from parent
+    define computes-admin: [user] or admin or computes-admin from parent
+    define computes-user: [user] or computes-admin or computes-user from parent
+    define computes-viewer: [user] or computes-admin or computes-user or computes-viewer from parent
+    define file-storage-admin: [user] or admin or file-storage-admin from parent
+    define file-storage-user: [user] or file-storage-admin or file-storage-user from parent
+    define file-storage-viewer: [user] or file-storage-admin or file-storage-user or file-storage-viewer from parent
     define member: [user] or admin
     define parent: [domain]
 
 type user
+

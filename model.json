@@ -1,0 +1,1197 @@
+{
+    "schema_version": "1.1",
+    "type_definitions": [
+        {
+            "metadata": {
+                "relations": {
+                    "admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "file-storage-admin",
+                                "type": "project"
+                            }
+                        ]
+                    },
+                    "can_create": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "can_delete": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "can_list": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "can_update": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "member": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "file-storage-user",
+                                "type": "project"
+                            }
+                        ]
+                    },
+                    "parent": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "project"
+                            }
+                        ]
+                    },
+                    "viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "member",
+                                "type": "project"
+                            }
+                        ]
+                    }
+                }
+            },
+            "relations": {
+                "admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_create": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "member"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_delete": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "member"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_list": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "viewer"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_update": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "member"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "member": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-user"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "parent": {
+                    "this": {}
+                },
+                "viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "member"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-viewer"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "type": "file-storage"
+        },
+        {
+            "metadata": {
+                "relations": {
+                    "admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "computes-admin",
+                                "type": "project"
+                            }
+                        ]
+                    },
+                    "can_create": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "can_delete": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "can_list": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "can_update": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "member": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "computes-user",
+                                "type": "project"
+                            }
+                        ]
+                    },
+                    "parent": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "project"
+                            }
+                        ]
+                    },
+                    "viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    }
+                }
+            },
+            "relations": {
+                "admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_create": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "viewer"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_delete": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "viewer"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_list": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "viewer"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_update": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "viewer"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "member": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-user"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "parent": {
+                    "this": {}
+                },
+                "viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "member"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-viewer"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "type": "computes"
+        },
+        {
+            "metadata": {
+                "relations": {
+                    "admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    }
+                }
+            },
+            "relations": {
+                "admin": {
+                    "this": {}
+                }
+            },
+            "type": "root-tenant"
+        },
+        {
+            "metadata": {
+                "relations": {
+                    "admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-user": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-user": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "member": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "parent": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "root-tenant"
+                            }
+                        ]
+                    }
+                }
+            },
+            "relations": {
+                "admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-user": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-admin"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-user"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-user": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-admin"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-user"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "member": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "parent": {
+                    "this": {}
+                }
+            },
+            "type": "tenant"
+        },
+        {
+            "metadata": {
+                "relations": {
+                    "admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "admin",
+                                "type": "root-tenant"
+                            }
+                        ]
+                    },
+                    "computes-admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-user": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-user": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "member": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "parent": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "tenant"
+                            }
+                        ]
+                    }
+                }
+            },
+            "relations": {
+                "admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-user": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-user"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-admin"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-user"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-viewer"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-user": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-user"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-admin"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-user"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-viewer"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "member": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "parent": {
+                    "this": {}
+                }
+            },
+            "type": "domain"
+        },
+        {
+            "metadata": {
+                "relations": {
+                    "admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            },
+                            {
+                                "relation": "admin",
+                                "type": "root-tenant"
+                            },
+                            {
+                                "relation": "admin",
+                                "type": "tenant"
+                            }
+                        ]
+                    },
+                    "computes-admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-user": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "computes-viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-admin": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-user": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "file-storage-viewer": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "member": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "user"
+                            }
+                        ]
+                    },
+                    "parent": {
+                        "directly_related_user_types": [
+                            {
+                                "type": "domain"
+                            }
+                        ]
+                    }
+                }
+            },
+            "relations": {
+                "admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-user": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-user"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "computes-viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-admin"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "computes-user"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "computes-viewer"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-admin": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-admin"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-user": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-admin"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-user"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "file-storage-viewer": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-admin"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "file-storage-user"
+                                }
+                            },
+                            {
+                                "tupleToUserset": {
+                                    "computedUserset": {
+                                        "relation": "file-storage-viewer"
+                                    },
+                                    "tupleset": {
+                                        "relation": "parent"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "member": {
+                    "union": {
+                        "child": [
+                            {
+                                "this": {}
+                            },
+                            {
+                                "computedUserset": {
+                                    "relation": "admin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "parent": {
+                    "this": {}
+                }
+            },
+            "type": "project"
+        },
+        {
+            "type": "user"
+        }
+    ]
+}
