@@ -38,7 +38,7 @@
   object: file-storage:t1d1p1fs1
   relation: parent
 - user: project:t1d1p1
-  object: compute:t1d1p1compute1
+  object: computes:t1d1p1compute1
   relation: parent
 #------------------------------------------
 - user: domain:t1d1
@@ -56,7 +56,7 @@
   object: file-storage:t1d1p2fs1
   relation: parent
 - user: project:t1d1p2
-  object: compute:t1d1p2compute1
+  object: computes:t1d1p2compute1
   relation: parent
 #------------------------------------------
 
@@ -85,7 +85,7 @@
   object: file-storage:t1d2p1fs1
   relation: parent
 - user: project:t1d2p1
-  object: compute:t1d2p1compute1
+  object: computes:t1d2p1compute1
   relation: parent
 #------------------------------------------
 
@@ -104,7 +104,7 @@
   object: file-storage:t1d2p2fs1
   relation: parent
 - user: project:t1d2p2
-  object: compute:t1d2p2compute1
+  object: computes:t1d2p2compute1
   relation: parent
 #------------------------------------------
 
@@ -144,7 +144,7 @@
   object: file-storage:t2d1p1fs1
   relation: parent
 - user: project:t2d1p1
-  object: compute:t2d1p1compute1
+  object: computes:t2d1p1compute1
   relation: parent
 #------------------------------------------
 
@@ -163,7 +163,7 @@
   object: file-storage:t2d1p2fs1
   relation: parent
 - user: project:t2d1p2
-  object: compute:t2d1p2compute1
+  object: computes:t2d1p2compute1
   relation: parent
 #------------------------------------------
 
@@ -192,7 +192,7 @@
   object: file-storage:t2d2p1fs1
   relation: parent
 - user: project:t2d2p1
-  object: compute:t2d2p1compute1
+  object: computes:t2d2p1compute1
   relation: parent
 #------------------------------------------
 
@@ -211,7 +211,7 @@
   object: file-storage:t2d2p2fs1
   relation: parent
 - user: project:t2d2p2
-  object: compute:t2d2p2compute1
+  object: computes:t2d2p2compute1
   relation: parent
 #------------------------------------------
 
