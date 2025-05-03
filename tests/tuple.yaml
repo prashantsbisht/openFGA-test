@@ -2,7 +2,7 @@
   object: root-tenant:root
   relation: admin
 
-#-------- Tenant t1------------------
+#-------- Tenant t1 ------------------
 - user: root-tenant:root
   object: tenant:t1
   relation: parent
@@ -33,14 +33,34 @@
   object: project:t1d1p1
   relation: member
 
-#-------resources for project t1d1p1------
+#------- Resources for project t1d1p1 ------
 - user: project:t1d1p1
   object: file-storage:t1d1p1fs1
   relation: parent
+- user: user:t1d1p1_member
+  object: project:t1d1p1
+  relation: file-storage-user
+- user: user:t1d1p1_admin
+  object: project:t1d1p1
+  relation: file-storage-admin
+- user: user:t1d1p1_member
+  object: project:t1d1p1
+  relation: file-storage-viewer
+
 - user: project:t1d1p1
   object: computes:t1d1p1compute1
   relation: parent
-#------------------------------------------
+- user: user:t1d1p1_member
+  object: project:t1d1p1
+  relation: computes-user
+- user: user:t1d1p1_admin
+  object: project:t1d1p1
+  relation: computes-admin
+- user: user:t1d1p1_member
+  object: project:t1d1p1
+  relation: computes-viewer
+
+#------- Resources for project t1d1p2 ------
 - user: domain:t1d1
   object: project:t1d1p2
   relation: parent
@@ -51,64 +71,33 @@
   object: project:t1d1p2
   relation: member
 
-#-------resources for project t1d1p2------
 - user: project:t1d1p2
   object: file-storage:t1d1p2fs1
   relation: parent
+- user: user:t1d1p2_member
+  object: project:t1d1p2
+  relation: file-storage-user
+- user: user:t1d1p2_admin
+  object: project:t1d1p2
+  relation: file-storage-admin
+- user: user:t1d1p2_member
+  object: project:t1d1p2
+  relation: file-storage-viewer
+
 - user: project:t1d1p2
   object: computes:t1d1p2compute1
   relation: parent
-#------------------------------------------
+- user: user:t1d1p2_member
+  object: project:t1d1p2
+  relation: computes-user
+- user: user:t1d1p2_admin
+  object: project:t1d1p2
+  relation: computes-admin
+- user: user:t1d1p2_member
+  object: project:t1d1p2
+  relation: computes-viewer
 
-- user: tenant:t1
-  object: domain:t1d2
-  relation: parent
-- user: user:t1d2_admin
-  object: domain:t1d2
-  relation: admin
-- user: user:t1d2_member
-  object: domain:t1d2
-  relation: member
-
-- user: domain:t1d2
-  object: project:t1d2p1
-  relation: parent
-- user: user:t1d2p1_admin
-  object: project:t1d2p1
-  relation: admin
-- user: user:t1d2p1_member
-  object: project:t1d2p1
-  relation: member
-
-#-------resources for project t1d2p1------
-- user: project:t1d2p1
-  object: file-storage:t1d2p1fs1
-  relation: parent
-- user: project:t1d2p1
-  object: computes:t1d2p1compute1
-  relation: parent
-#------------------------------------------
-
-- user: domain:t1d2
-  object: project:t1d2p2
-  relation: parent
-- user: user:t1d2p2_admin
-  object: project:t1d2p2
-  relation: admin
-- user: user:t1d2p2_member
-  object: project:t1d2p2
-  relation: member
-
-#-------resources for project t1d2p2------
-- user: project:t1d2p2
-  object: file-storage:t1d2p2fs1
-  relation: parent
-- user: project:t1d2p2
-  object: computes:t1d2p2compute1
-  relation: parent
-#------------------------------------------
-
-#-------- Tenant t2------------------
+#-------- Tenant t2 ------------------
 - user: root-tenant:root
   object: tenant:t2
   relation: parent
@@ -139,15 +128,34 @@
   object: project:t2d1p1
   relation: member
 
-#-------resources for project t2d1p1------
+#------- Resources for project t2d1p1 ------
 - user: project:t2d1p1
   object: file-storage:t2d1p1fs1
   relation: parent
+- user: user:t2d1p1_member
+  object: project:t2d1p1
+  relation: file-storage-user
+- user: user:t2d1p1_admin
+  object: project:t2d1p1
+  relation: file-storage-admin
+- user: user:t2d1p1_member
+  object: project:t2d1p1
+  relation: file-storage-viewer
+
 - user: project:t2d1p1
   object: computes:t2d1p1compute1
   relation: parent
-#------------------------------------------
+- user: user:t2d1p1_member
+  object: project:t2d1p1
+  relation: computes-user
+- user: user:t2d1p1_admin
+  object: project:t2d1p1
+  relation: computes-admin
+- user: user:t2d1p1_member
+  object: project:t2d1p1
+  relation: computes-viewer
 
+#------- Resources for project t2d1p2 ------
 - user: domain:t2d1
   object: project:t2d1p2
   relation: parent
@@ -158,60 +166,123 @@
   object: project:t2d1p2
   relation: member
 
-#-------resources for project t2d1p2------
 - user: project:t2d1p2
   object: file-storage:t2d1p2fs1
   relation: parent
+- user: user:t2d1p2_member
+  object: project:t2d1p2
+  relation: file-storage-user
+- user: user:t2d1p2_admin
+  object: project:t2d1p2
+  relation: file-storage-admin
+- user: user:t2d1p2_member
+  object: project:t2d1p2
+  relation: file-storage-viewer
+
 - user: project:t2d1p2
   object: computes:t2d1p2compute1
   relation: parent
-#------------------------------------------
+- user: user:t2d1p2_member
+  object: project:t2d1p2
+  relation: computes-user
+- user: user:t2d1p2_admin
+  object: project:t2d1p2
+  relation: computes-admin
+- user: user:t2d1p2_member
+  object: project:t2d1p2
+  relation: computes-viewer
 
-- user: tenant:t2
-  object: domain:t2d2
+#-------- Tenant t3 ------------------
+- user: root-tenant:root
+  object: tenant:t3
   relation: parent
-- user: user:t2d2_admin
-  object: domain:t2d2
+- user: user:t3_admin
+  object: tenant:t3
   relation: admin
-- user: user:t2d2_member
-  object: domain:t2d2
+- user: user:t3_member
+  object: tenant:t3
   relation: member
 
-- user: domain:t2d2
-  object: project:t2d2p1
+- user: tenant:t3
+  object: domain:t3d1
   relation: parent
-- user: user:t2d2p1_admin
-  object: project:t2d2p1
+- user: user:t3d1_admin
+  object: domain:t3d1
   relation: admin
-- user: user:t2d2p1_member
-  object: project:t2d2p1
+- user: user:t3d1_member
+  object: domain:t3d1
   relation: member
 
-#-------resources for project t2d2p1------
-- user: project:t2d2p1
-  object: file-storage:t2d2p1fs1
+- user: domain:t3d1
+  object: project:t3d1p1
   relation: parent
-- user: project:t2d2p1
-  object: computes:t2d2p1compute1
-  relation: parent
-#------------------------------------------
-
-- user: domain:t2d2
-  object: project:t2d2p2
-  relation: parent
-- user: user:t2d2p2_admin
-  object: project:t2d2p2
+- user: user:t3d1p1_admin
+  object: project:t3d1p1
   relation: admin
-- user: user:t2d2p2_member
-  object: project:t2d2p2
+- user: user:t3d1p1_member
+  object: project:t3d1p1
   relation: member
 
-#-------resources for project t2d2p2------
-- user: project:t2d2p2
-  object: file-storage:t2d2p2fs1
+#------- Resources for project t3d1p1 ------
+- user: project:t3d1p1
+  object: file-storage:t3d1p1fs1
   relation: parent
-- user: project:t2d2p2
-  object: computes:t2d2p2compute1
-  relation: parent
-#------------------------------------------
+- user: user:t3d1p1_member
+  object: project:t3d1p1
+  relation: file-storage-user
+- user: user:t3d1p1_admin
+  object: project:t3d1p1
+  relation: file-storage-admin
+- user: user:t3d1p1_member
+  object: project:t3d1p1
+  relation: file-storage-viewer
 
+- user: project:t3d1p1
+  object: computes:t3d1p1compute1
+  relation: parent
+- user: user:t3d1p1_member
+  object: project:t3d1p1
+  relation: computes-user
+- user: user:t3d1p1_admin
+  object: project:t3d1p1
+  relation: computes-admin
+- user: user:t3d1p1_member
+  object: project:t3d1p1
+  relation: computes-viewer
+
+#------- Resources for project t3d1p2 ------
+- user: domain:t3d1
+  object: project:t3d1p2
+  relation: parent
+- user: user:t3d1p2_admin
+  object: project:t3d1p2
+  relation: admin
+- user: user:t3d1p2_member
+  object: project:t3d1p2
+  relation: member
+
+- user: project:t3d1p2
+  object: file-storage:t3d1p2fs1
+  relation: parent
+- user: user:t3d1p2_member
+  object: project:t3d1p2
+  relation: file-storage-user
+- user: user:t3d1p2_admin
+  object: project:t3d1p2
+  relation: file-storage-admin
+- user: user:t3d1p2_member
+  object: project:t3d1p2
+  relation: file-storage-viewer
+
+- user: project:t3d1p2
+  object: computes:t3d1p2compute1
+  relation: parent
+- user: user:t3d1p2_member
+  object: project:t3d1p2
+  relation: computes-user
+- user: user:t3d1p2_admin
+  object: project:t3d1p2
+  relation: computes-admin
+- user: user:t3d1p2_member
+  object: project:t3d1p2
+  relation: computes-viewer

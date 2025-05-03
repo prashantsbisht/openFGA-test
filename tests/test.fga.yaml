@@ -2,6 +2,9 @@ name: Validation of OpenFGA policy
 model_file: ../model.fga
 tuple_file: ./tuple.yaml
 tests:
+#––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  # FILE STORAGE  PERMISSIONS 
+  #––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
   - name: Root-Tenant admin have all permission for file-storage irrespective of tenants
     check:
       - user: user:root_admin
@@ -148,7 +151,7 @@ tests:
           can_delete: false
           can_list: false
           can_update: false
-  
+
   - name: Domain admin have all permission for file-storage in their domain only.
     check:
       - user: user:t1d1_admin
@@ -207,7 +210,7 @@ tests:
           can_delete: false
           can_list: false
           can_update: false
-  
+
   - name: Project members can list and create file storage within their project, but cannot delete it.
     check:
       - user: user:t1d1p1_admin
@@ -324,3 +327,416 @@ tests:
           can_delete: false
           can_list: false
           can_update: false
+  - name: Project admin must not have permission for file-storage in other projects.
+    check:
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d1p1fs1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d1p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d2p1fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d2p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d1p1fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d1p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d2p1fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d2p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  - name: Project member (user) must not have permission for file-storage in other projects.
+    check:
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d1p1fs1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d1p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d2p1fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t1d2p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d1p1fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d1p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d2p1fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1p1_admin
+        object: file-storage:t2d2p2fs1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+  #––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  # COMPUTES PERMISSIONS 
+  #––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  - name: Root-Tenant admin has full compute access across all tenants
+    check:
+      - user: user:root_admin
+        object: computes:t1d1p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t1d1p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t1d2p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t1d2p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t2d1p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t2d1p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t2d2p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:root_admin
+        object: computes:t2d2p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+
+  - name: Tenant-level computes admin has full access within their tenant only
+    check:
+      - user: user:t1_admin
+        object: computes:t1d1p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1_admin
+        object: computes:t1d1p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1_admin
+        object: computes:t1d2p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1_admin
+        object: computes:t1d2p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1_admin
+        object: computes:t2d1p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1_admin
+        object: computes:t2d1p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1_admin
+        object: computes:t2d2p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1_admin
+        object: computes:t2d2p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  - name: Domain-level computes admin has full access within their domain only
+    check:
+      - user: user:t1d1_admin
+        object: computes:t1d1p1compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1d1_admin
+        object: computes:t1d1p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1d1_admin
+        object: computes:t1d2p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1_admin
+        object: computes:t1d2p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1_admin
+        object: computes:t2d1p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1_admin
+        object: computes:t2d1p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1_admin
+        object: computes:t2d2p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d1_admin
+        object: computes:t2d2p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  - name: Project-level compute-user has full compute access within their project only
+    check:
+      - user: user:t1d2p2_cmp_user
+        object: computes:t1d2p2compute1
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1d2p2_cmp_user
+        object: computes:t1d2p2compute2
+        assertions:
+          can_create: true
+          can_delete: true
+          can_list:   true
+          can_update: true
+      - user: user:t1d2p2_cmp_user
+        object: computes:t1d2p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t1d2p2_cmp_user
+        object: computes:t1d1p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  - name: Project member can list and update but not create/delete in their own project
+    check:
+      - user: user:t2d1p1_member
+        object: computes:t2d1p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   true
+          can_update: true
+      - user: user:t2d1p1_member
+        object: computes:t2d1p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:t2d1p1_member
+        object: computes:t2d1p1compute2
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   true
+          can_update: true
+      - user: user:t2d1p1_member
+        object: computes:t2d2p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  - name: Project viewer can only list compute resources in their project
+    check:
+      - user: user:t1d1p2_viewer
+        object: computes:t1d1p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   true
+          can_update: false
+      - user: user:t1d1p2_viewer
+        object: computes:t1d2p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  
+  - name: Unassigned user has no compute access anywhere
+    check:
+      - user: user:anonymous
+        object: computes:t1d1p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:anonymous
+        object: computes:t2d2p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+  - name: Removed compute-user loses all compute permissions
+    check:
+      - user: user:removed_cmp_user
+        object: computes:t1d2p2compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+      - user: user:removed_cmp_user
+        object: computes:t2d1p1compute1
+        assertions:
+          can_create: false
+          can_delete: false
+          can_list:   false
+          can_update: false
+
+    
